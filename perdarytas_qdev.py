@@ -74,19 +74,20 @@ def cycles_counting(data):
     Suskaičiuoja, kiek kartų pasikartoja tam tikra seka (raudona, geltona, žalia, geltona, raudona) duomenyse.
 
     Args:
-        data: Sąrašas sąrašų, kur kiekvienas vidinis sąrašas atitinka vieną duomenų eilutę 
-              ir turi bent tris elementus: [red, yellow, green, ...].
+        data: listas listų, kur kiekvienas vidinis listas atitinka vieną duomenų eilutę 
 
     Returns:
         int: Kiek kartų seka pasikartoja duomenyse.
     """
 
+
     pattern_list = [1, 1, 1, 1, 1]  # Ieškoma paternas
     apperence_counter = 0 # pilnų ciklų skaičius
     counter = 0 # skaičiuos kiek kartų patikrinimas buvo teisingas
 
+
     for i in range(len(data)):
-        if data[i][0] != 1:  # Praleidžiame eilutes, kur 'red' nėra 1
+        if data[i][0] != 1:  # Praleidžiame eilutes, kur red nėra 1
             continue
 
         if i == len(data) - 4:  # Patikriname, ar nepasibaigė duomenys, žemiau esančio indekso eilutė nebeišpildys pilno ciklo
@@ -95,20 +96,21 @@ def cycles_counting(data):
         for j, element in enumerate(pattern_list):
             idx_tmp = i + j  # Apskaičiuojame indeksą duomenų sąraše
 
-            if element == data[idx_tmp][0]:  # Tikriname 'red'
+            if element == data[idx_tmp][0]:  # Tikriname red
                 counter += 1
-            elif element == data[idx_tmp][1]:  # Tikriname 'yellow'
+            elif element == data[idx_tmp][1]:  # Tikriname yellow
                 counter += 1
-            elif element == data[idx_tmp][2]:  # Tikriname 'green'
+            elif element == data[idx_tmp][2]:  # Tikriname green
                 counter += 1
             else:
-                break  # Jei seka nesutampa, nutraukiame vidinį ciklą
+                break  
 
         if counter == 5:  # Jei visa seka sutapo - irašome apperence_counter +1, ciklas užfiksuotas
             apperence_counter += 1
             counter = 0 # nuresetinam patikriniumus ir einam iš naujo
 
     return apperence_counter
+
 
 
 # Sukuriame naują failą ir surašome rezultatus
