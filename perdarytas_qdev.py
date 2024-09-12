@@ -37,7 +37,7 @@ def read_data_from_file(filename):
 
 # Nuskaitome duomenis iš failo
 data = read_data_from_file('data.txt')
- 
+
 
 #susikuriam tuščius listus į kuriuos talpinsiu duomenis
 wrong_data = []
@@ -48,6 +48,7 @@ red_activetime = []
 yellow_activetime = []
 green_activetime = []
 green_avtive_times = []
+
 
 # einam per kiekvieną nuskaityto failo eilute
 for line in data:
@@ -110,8 +111,7 @@ def cycles_counting(data):
     return apperence_counter
 
 
-
-# Sukuriame naują failą ir įrašome tekstą
+# Sukuriame naują failą ir surašome rezultatus
 with open('rezultatai.txt', 'w', encoding='utf-8') as file:
     file.write(f'raudona spalva pasirodė: {len(red_data)} kartus\n') 
     file.write(f'geltona spalva pasirodė: {len(yellow_data)} kartus\n') 
